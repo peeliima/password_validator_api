@@ -40,17 +40,40 @@ class PasswordController extends Controller
                 $http_code = 400;
                 $validate = false;
             }
-
-            return response ([
-                'verify' => $validate,
-                'noMatch' => $errors
-            ], $http_code);
         }
+
+        return response ([
+            'verify' => $validate,
+            'noMatch' => $errors
+        ], $http_code);
     }
 
     private function minSize($password, $value)
     {
         if (mb_strlen($password) < $value) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private function minUppercase($password, $value)
+    {
+        $count = 0;
+
+        $password_lenght = mb_strlen($password);
+
+        for ($i=0; $i < $password_lenght; $i++) {
+            $explode_password = substr($password, $i, 1);
+
+            $validate = ctype_upper($explode_password);
+
+            if ($validate == true) {
+                $count++;
+            }
+        }
+
+        if ($count < $value) {
             return false;
         }
 
