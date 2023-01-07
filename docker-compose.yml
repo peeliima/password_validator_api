@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  app:
+    image: lissonpsantos2/ubuntu-phps:latest
+    restart: always
+    networks:
+      - password_validator
+    container_name: password_validator_api
+    volumes:
+      - ./:/home/project-folder/
+    command: bash -c "selectphp 8.1 && apachelinker /home/project-folder/public && tail -f /tmp/dev.log"
+    ports:
+      - 8101:80
+networks:
+  password_validator:
+    name: password_validator
+    driver: bridge
