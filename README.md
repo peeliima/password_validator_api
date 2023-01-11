@@ -8,7 +8,7 @@ as regras escolhidas pelo usuário.
 
 ## Instalação
 
-1 - Crie um arquivo .env aparti do .env.example na pasta raiz do projeto:
+1 - Crie um arquivo .env aparti do .env.example na pasta raiz do projeto caso ele não exista:
 
 ```bash
 cp .env.example .env
