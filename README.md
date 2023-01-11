@@ -61,10 +61,7 @@ chown www-data -R storage/
 
 #### Exemplo de como montar a payload
 
-{
-	"password": "qwertQWERT!@00",
-	"rules": [
-		{
+{"password": "qwertQWERT!@00", "rules": [{
 		"rule": "minSize",
 		"value": 8
 		},
@@ -83,22 +80,14 @@ chown www-data -R storage/
 		{
 		"rule": "noRepeted",
 		"value": 0
-		}
-	]
+		}]
 }
 
 ####Caso não queira alguma regra, basta remove-la.
 
 ####Caso não queira nenhuma regra, o payload deve ser montado da seguinte forma:
 
-{
-	"password": "qwertQWERT!@00",
-	"rules": [
-		{
-
-		}
-	]
-}
+{"password": "qwertQWERT!@00", "rules": [{	}]}
 
 
 ## Autores
